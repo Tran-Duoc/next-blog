@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const categoryApi = [
+export const categoryApi = [
   {
     name: 'Program',
     image: 'https://source.unsplash.com/random',
@@ -42,7 +42,7 @@ const CategoryList = () => {
                 height={30}
                 className='rounded-full object-fill w-8 h-8'
               />
-              <p className='font-medium ml-5'> {item.name}</p>
+              <span className='font-medium ml-5'> {item.name}</span>
             </div>
           );
         })}

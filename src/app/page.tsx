@@ -1,6 +1,7 @@
 import Aside from '@/components/Aside';
 import Banner from '@/components/Banner';
 import CategoryList from '@/components/CategoryList';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import RecentPost from '@/components/RecentPost';
 
@@ -18,6 +19,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

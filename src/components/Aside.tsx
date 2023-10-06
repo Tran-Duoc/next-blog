@@ -1,4 +1,6 @@
 import React from 'react';
+import Topic from './Topic';
+import Menu from './Menu';
 
 const asideApi = [
   {
@@ -29,25 +31,32 @@ const asideApi = [
 
 const Aside = () => {
   return (
-    <div className='flex flex-col mt-5 flex-1 '>
-      <p className='text-slate-600/50'>What&apos;s host</p>
-      <h2 className='text-2xl font-semibold'>Most Popular</h2>
-      <div className='flex flex-col'>
-        {[...asideApi].map((item, index) => {
-          return (
-            <div className='flex flex-col gap-2 mt-6' key={index}>
-              <span
-                className={`px-2 py-1 rounded-full ${item.nameColor} text-center font-semibold  max-w-[100px] `}
-              >
-                {item.categoryType}
-              </span>
-              <p className=' line-clamp-2'>{item.description}</p>
-              <p className='text-base font-medium text-slate-600/50 flex'>
-                {item.date} <p className='text-rose-600 ml-2'>{item.author}</p>
-              </p>
-            </div>
-          );
-        })}
+    <div className='hidden lg:block flex-1'>
+      <div className='flex flex-col mt-5  '>
+        <span className='text-slate-600/60 dark:text-white'>
+          What&apos;s host
+        </span>
+        <h2 className='text-2xl font-semibold'>Most Popular</h2>
+        <div className='flex flex-col'>
+          {[...asideApi].map((item, index) => {
+            return (
+              <div className='flex flex-col gap-2 mt-6' key={index}>
+                <span
+                  className={`px-2 py-1 rounded-full ${item.nameColor} text-center font-semibold  max-w-[100px] `}
+                >
+                  {item.categoryType}
+                </span>
+                <span className=' line-clamp-2'>{item.description}</span>
+                <span className='text-base font-medium text-slate-600/50  dark:text-white flex'>
+                  {item.date}{' '}
+                  <span className='text-rose-600 ml-2'>{item.author}</span>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        <Topic />
+        <Menu />
       </div>
     </div>
   );

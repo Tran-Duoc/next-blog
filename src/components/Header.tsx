@@ -13,7 +13,7 @@ const navApi = [
   },
   {
     name: 'Blog',
-    link: '/',
+    link: '/blog',
   },
   {
     name: 'Contact',
@@ -25,7 +25,7 @@ const Header = () => {
   const { user } = useUser();
 
   return (
-    <section className='py-4 fixed top-0 left-0 right-0 bg-white'>
+    <section className='py-4 fixed top-0 left-0 right-0 bg-white dark:bg-[#020817]'>
       <header className='flex items-start justify-between max-w-7xl mx-auto px-3 lg:px-0'>
         <div className='flex gap-2 items-center'>
           <Link href={'/'}>
