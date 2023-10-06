@@ -1,6 +1,8 @@
+import Aside from '@/components/Aside';
 import Banner from '@/components/Banner';
 import CategoryList from '@/components/CategoryList';
 import Header from '@/components/Header';
+import RecentPost from '@/components/RecentPost';
 
 export default function Home() {
   return (
@@ -10,6 +12,10 @@ export default function Home() {
         <div className='max-w-7xl w-full mx-auto'>
           <Banner />
           <CategoryList />
+          <div className='flex gap-5'>
+            <RecentPost />
+            <Aside />
+          </div>
         </div>
       </section>
     </>

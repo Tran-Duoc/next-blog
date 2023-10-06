@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 import { ModeToggle } from './ToggleMode';
 import { Facebook, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { UserButton } from '@clerk/nextjs';
+import { UserButton, useUser } from '@clerk/nextjs';
 
 const navApi = [
   {
@@ -21,8 +22,10 @@ const navApi = [
 ];
 
 const Header = () => {
+  const { user } = useUser();
+
   return (
-    <section className='py-4 fixed top-0 left-0 right-0'>
+    <section className='py-4 fixed top-0 left-0 right-0 bg-white'>
       <header className='flex items-start justify-between max-w-7xl mx-auto px-3 lg:px-0'>
         <div className='flex gap-2 items-center'>
           <Link href={'/'}>
@@ -56,11 +59,14 @@ const Header = () => {
           </div>
         </div>
         <div className='flex items-center gap-3'>
-          <UserButton afterSignOutUrl='/' />
           <ModeToggle />
-          <Button asChild>
-            <Link href={'/sign-in'}>Login</Link>
-          </Button>
+          {user ? (
+            <UserButton afterSignOutUrl='/' />
+          ) : (
+            <Button asChild>
+              <Link href={'/sign-in'}>Login</Link>
+            </Button>
+          )}
         </div>
       </header>
     </section>
